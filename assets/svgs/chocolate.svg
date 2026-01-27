@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<!-- Chocolate Bar SVG -->
+<path fill="#5D4037" d="M64 96h384v320H64z"/> <!-- Main bar -->
+<path fill="#795548" d="M80 112h106v136H80zM203 112h106v136H203zM326 112h106v136H326z"/> <!-- Top row blocks -->
+<path fill="#795548" d="M80 264h106v136H80zM203 264h106v136H203zM326 264h106v136H326z"/> <!-- Bottom row blocks -->
+<path fill="#4E342E" d="M64 96v320h16V96H64zm368 0v320h16V96h-16z"/> <!-- Shadow/Edge -->
+</svg>

@@ -21,7 +21,6 @@ const config = {
         'assets/svgs/love-letter.svg',
         'assets/svgs/ring.svg',
         'assets/svgs/white-flower.svg',
-        'assets/svgs/chocolate.svg',
         'assets/svgs/ring.svg',
         'assets/svgs/cherry-blossom.svg',
         'assets/svgs/sakura-petal.svg',
@@ -107,6 +106,7 @@ const config = {
             themeColor: "#8b4513",
             bgStart: "#FFF8F0", bgMid: "#FFE8D0", bgEnd: "#F5D0A9",
             petalSymbols: ["🍫", "🍬", "🤎", "🧁", "🍰", "🍪"],
+            floatingIcons: ['assets/svgs/heart.svg', 'assets/svgs/chocolate.svg', 'assets/svgs/balloon.svg'],
             music: "assets/music/chocolate-day.mp3",
             memories: [
                 "Life can be bitter sometimes...",

@@ -924,7 +924,11 @@ function createFloatingBackground() {
         'assets/svgs/happy.svg'
     ];
 
-    if (currentDayIndex >= 0) {
+    // Use day-specific floating icons if defined
+    if (currentDayIndex >= 0 && config.days[currentDayIndex] && config.days[currentDayIndex].floatingIcons) {
+        icons = config.days[currentDayIndex].floatingIcons;
+    } else if (currentDayIndex >= 0) {
+        // Filter out sakura for generic days if not overridden
         icons = icons.filter(icon =>
             !icon.includes('cherry-blossom') &&
             !icon.includes('sakura-petal') &&
