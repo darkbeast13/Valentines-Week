@@ -3,7 +3,7 @@
 A magical, interactive web experience to celebrate the 8 days of Valentine's Week. Surprise your special someone with a personalized digital gift featuring animations, music, and memories.
 
 <div align="center">
-  <a href="https://Deon-07.github.io/ValentineWeek">
+  <a href="https://Deon-07.github.io/Valentines-Week">
     <img src="https://img.shields.io/badge/View_Live_Demo-FF0080?style=for-the-badge&logo=ko-fi&logoColor=white" alt="View Live Demo" height="40">
   </a>
 </div>
