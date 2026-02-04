@@ -569,7 +569,7 @@ body {
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    z-index: 6000;
+    z-index: 20002 !important;
     box-shadow: 0 8px 25px var(--music-shadow, rgba(255, 107, 157, 0.3));
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     overflow: hidden;
@@ -587,7 +587,7 @@ body {
     z-index: 0;
 }
 
-.music-player > * {
+.music-player>* {
     position: relative;
     z-index: 1;
 }
@@ -1294,9 +1294,11 @@ body {
         transform: translate(-50%, -50%) scale(0.6);
         opacity: 0;
     }
+
     15% {
         opacity: 1;
     }
+
     100% {
         transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.25) rotate(12deg);
         opacity: 0;
@@ -1308,9 +1310,11 @@ body {
         transform: translate(-50%, -50%) scale(0.6);
         opacity: 0;
     }
+
     15% {
         opacity: 0.9;
     }
+
     100% {
         transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.15);
         opacity: 0;
@@ -1322,10 +1326,12 @@ body {
         transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
         opacity: 0;
     }
+
     50% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.1) rotate(12deg);
     }
+
     100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.6) rotate(-12deg);
@@ -1339,12 +1345,14 @@ body {
             0 5px 15px rgba(244, 143, 177, 0.15),
             inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
+
     50% {
         box-shadow:
             0 20px 45px rgba(233, 30, 99, 0.35),
             0 12px 25px rgba(244, 143, 177, 0.25),
             inset 0 1px 0 rgba(255, 255, 255, 0.55);
     }
+
     100% {
         box-shadow:
             0 15px 35px rgba(233, 30, 99, 0.2),
@@ -1808,6 +1816,7 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
+
     body.custom-cursor,
     body.custom-cursor * {
         cursor: none;
@@ -1831,10 +1840,12 @@ body.modal-open #customCursor {
     0% {
         transform: translate(-50%, -50%) rotate(-10deg) scale(1);
     }
+
     50% {
         transform: translate(-50%, -50%) rotate(12deg) scale(1.14);
         filter: drop-shadow(0 10px 16px rgba(255, 200, 230, 0.55));
     }
+
     100% {
         transform: translate(-50%, -50%) rotate(-10deg) scale(1);
     }
@@ -1923,9 +1934,11 @@ body.modal-open #customCursor {
     0% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-8px);
     }
+
     100% {
         transform: translateY(0);
     }
@@ -1936,10 +1949,12 @@ body.modal-open #customCursor {
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         border-color: rgba(255, 255, 255, 0.2);
     }
+
     50% {
         box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25);
         border-color: rgba(255, 255, 255, 0.45);
     }
+
     100% {
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         border-color: rgba(255, 255, 255, 0.2);
@@ -1950,9 +1965,11 @@ body.modal-open #customCursor {
     0% {
         transform: translateY(0) scale(1);
     }
+
     45% {
         transform: translateY(-6px) scale(1.08);
     }
+
     100% {
         transform: translateY(0) scale(1);
     }
@@ -1962,9 +1979,11 @@ body.modal-open #customCursor {
     0% {
         transform: rotateX(0deg);
     }
+
     45% {
         transform: rotateX(-75deg);
     }
+
     100% {
         transform: rotateX(0deg);
     }
@@ -2159,5 +2178,469 @@ body.modal-open #customCursor {
 
     .countdown-label {
         font-size: 0.6rem;
+    }
+}
+
+/* ========== CREATE GREETING FORM ========== */
+.create-form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 249, 251, 0.95) 0%, rgba(252, 228, 236, 0.95) 50%, rgba(248, 187, 208, 0.95) 100%);
+    backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.create-form-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 480px;
+    width: 100%;
+    box-shadow:
+        0 25px 50px rgba(233, 30, 99, 0.15),
+        0 10px 30px rgba(244, 143, 177, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 182, 193, 0.5);
+    animation: fadeUp 0.5s ease forwards;
+}
+
+.create-form-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-music-btn {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, var(--theme-color, #ff6b6b), #ff8e8e);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.form-music-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.create-form-header .form-icon {
+    font-size: 3.5rem;
+    display: block;
+    margin-bottom: 15px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.create-form-header h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2rem;
+    color: #C71585;
+    margin-bottom: 8px;
+}
+
+.create-form-header p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #7A2E45;
+    font-style: italic;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #5A2035;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    border-radius: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #4A1F24;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--theme-color);
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
+    background: white;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #B8A0A8;
+    font-style: italic;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.create-btn {
+    width: 100%;
+    padding: 16px 30px;
+    background: linear-gradient(135deg, var(--theme-color), #FF9AA2);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.35);
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.create-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(255, 107, 157, 0.45);
+}
+
+.create-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Success Result Styles */
+.success-message {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-message p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: #5A2035;
+    margin-bottom: 15px;
+}
+
+.share-url-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.share-url-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    border-radius: 12px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    color: #4A1F24;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.copy-btn {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, var(--theme-color), #FF9AA2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+}
+
+.share-hint {
+    font-size: 1rem !important;
+    color: #7A2E45 !important;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Social Share Buttons */
+.social-share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.share-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn:active {
+    transform: scale(0.98);
+}
+
+.share-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.share-btn.telegram {
+    background: linear-gradient(135deg, #0088cc, #229ED9);
+}
+
+.share-btn.facebook {
+    background: linear-gradient(135deg, #1877F2, #3b5998);
+}
+
+.share-btn.instagram {
+    background: linear-gradient(135deg, #E4405F, #C13584, #833AB4);
+}
+
+.share-btn img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Make white icons if they are colored, or keep natural if preferred. User's icons are colored? */
+}
+
+/* Responsive Create Form */
+@media (max-width: 480px) {
+    .create-form-container {
+        padding: 25px;
+        border-radius: 24px;
+    }
+
+    .create-form-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .create-form-header .form-icon {
+        font-size: 2.8rem;
+    }
+
+    .share-url-container {
+        flex-direction: column;
+    }
+}
+
+/* ========== EXPANDED FORM STYLES ========== */
+.create-form-container.expanded {
+    max-width: 580px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+@media (max-width: 520px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group .optional {
+    font-weight: 400;
+    color: #B8A0A8;
+    font-size: 0.9em;
+}
+
+/* Branding Styles */
+.brand-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #C71585;
+    text-decoration: none;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 182, 193, 0.5);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(199, 21, 133, 0.1);
+    z-index: 5;
+}
+
+/* Hover effect removed as requested */
+.brand-badge:hover {
+    color: #C71585;
+    /* Keep color consistent */
+    text-decoration: none;
+}
+
+.brand-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 182, 193, 0.3);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #7A2E45;
+}
+
+.brand-footer a {
+    color: #C71585;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.brand-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Global Branding */
+.global-brand {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ff4d88;
+    text-decoration: none;
+    z-index: 10006;
+    /* Higher than music button and overlays */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect removed */
+.global-brand:hover {
+    /* No animation */
+    color: #ff4d88;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* White logo ONLY on Coming Soon page (dark background) */
+body:has(#comingSoonOverlay.visible) .global-brand {
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Ensure music button is visible over form */
+.music-control-btn {
+    z-index: 10005 !important;
+}
+
+/* Day Selector Dropdown */
+.form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid rgba(255, 182, 193, 0.5);
+    border-radius: 15px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #4A1F24;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23C71585'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 24px;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: var(--theme-color);
+    box-shadow: 0 0 15px rgba(255, 107, 157, 0.2);
+    background-color: white;
+}
+
+/* Button Row */
+.button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.preview-btn {
+    flex: 1;
+    padding: 14px 25px;
+    background: transparent;
+    color: var(--theme-color);
+    border: 2px solid var(--theme-color);
+    border-radius: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-btn:hover {
+    background: rgba(255, 107, 157, 0.1);
+    transform: translateY(-2px);
+}
+
+.create-btn {
+    flex: 1.5;
+}
+
+@media (max-width: 480px) {
+    .button-row {
+        flex-direction: column;
+    }
+
+    .create-btn,
+    .preview-btn {
+        width: 100%;
     }
 }

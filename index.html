@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Week - A Surprise for Anu 🌸</title>
+    <title>Valentine's Week - A Surprise for xyz</title>
     <!-- Social Preview (Open Graph) -->
-    <meta property="og:title" content="A Surprise for Anu 🌸">
+    <meta property="og:title" content="A Surprise for xyz">
     <meta property="og:description" content="I have something special for you... Click to open! 💕">
     <meta property="og:image" content="https://Deon-07.github.io/ValentineWeek/preview/preview_1.png">
     <meta property="og:url" content="https://Deon-07.github.io/ValentineWeek">
@@ -30,6 +30,9 @@
         </div>
     </div>
 
+    <!-- Global Branding -->
+    <a href="https://wishy.in" target="_blank" class="global-brand">WISHY.IN</a>
+
     <!-- Background Animation (Floating SVGs) -->
     <div id="background-animation"></div>
 
@@ -45,7 +48,7 @@
 
         <!-- Stage 1: Greeting -->
         <div class="stage stage-1" id="stage1">
-            <h1 class="greeting-title">Hey <span class="highlight-name">Anu🌸</span></h1>
+            <h1 class="greeting-title">Hey <span class="highlight-name" data-receiver>xyz</span></h1>
             <p class="greeting-sub">I have something special for you...</p>
         </div>
 
@@ -97,7 +100,7 @@
             <div class="reveal-card" id="revealCard">
                 <div class="day-number" id="dayNumber">Day 1</div>
                 <div class="day-badge" id="dayBadge">Feb 7 • Rose Day</div>
-                <div class="subtitle" id="daySubtitle">Where Our Journey Begins...</div>
+                <div class="subtitle" id="daySubtitle" data-subtitle>Where Our Journey Begins...</div>
 
                 <div class="icon-display" id="iconDisplay">
                     <img src="assets/svgs/heart.svg" class="svg-icon left" alt="heart">
@@ -105,15 +108,15 @@
                     <img src="assets/svgs/heart.svg" class="svg-icon right" alt="heart">
                 </div>
 
-                <div class="quote" id="quoteText">
+                <div class="quote" id="quoteText" data-quote>
                     In a garden of billions,<br>
                     my heart chose you —<br>
                     the rarest rose that ever bloomed.
                 </div>
 
-                <div class="name" id="recipientName">— Anu🌸</div>
+                <div class="name" id="recipientName" data-receiver>— xyz</div>
 
-                <div class="message" id="dayMessage">
+                <div class="message" id="dayMessage" data-message>
                     Every love story has a beginning. This rose marks the first chapter of our week together.
                 </div>
 
@@ -201,11 +204,15 @@
     <!-- Stage 7: End Screen / Replay -->
     <div class="stage stage-7" id="stage7"
         style="display: none; align-items: center; justify-content: center; flex-direction: column;">
-        <div class="replay-section" id="replaySection">
+        <div class="replay-section" id="replaySection"
+            style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
             <p
-                style="color: #5c3d4a; font-size: 1.4rem; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.5);">
+                style="color: #5c3d4a; font-size: 1.4rem; font-weight: 500; text-shadow: 0 1px 2px rgba(255,255,255,0.5); margin-bottom: 10px;">
                 Hope you loved this! 💕</p>
             <button class="replay-btn" id="replayBtn">Watch Again ↺</button>
+            <button class="replay-btn" onclick="DynamicLoader.showCreateForm()"
+                style="background: linear-gradient(135deg, #ff4d88, #ff6b9d); color: white; border: none;">Create Your
+                Own 💝</button>
         </div>
     </div>
     </div>
@@ -215,8 +222,8 @@
         <div class="letter-content">
             <span class="letter-close" onclick="closeLoveLetter()">&times;</span>
             <div id="letterText"></div>
-            <div style="text-align: right; margin-top: 30px; font-family: 'Great Vibes', cursive; font-size: 2rem;">
-                Forever Yours,<br>Chadu
+            <div id="letterSignature" style="text-align: right; margin-top: 30px; font-family: 'Great Vibes', cursive; font-size: 2rem;">
+                Forever Yours,<br>Your Valentine
             </div>
         </div>
     </div>
@@ -228,7 +235,7 @@
             Something Special is Coming...
         </h1>
         <p style="font-size: 1.5rem; opacity: 0.9; font-style: italic;">
-            For <span id="csName">Anu🌸</span>
+            For <span id="csName">xyz</span>
         </p>
 
         <!-- Countdown Timer -->
@@ -285,7 +292,61 @@
         </audio>
     </div>
 
+    <!-- Create Greeting Form Overlay -->
+    <div id="createForm" class="create-form-overlay" style="display: none;">
+        <div class="create-form-container expanded">
+            <a href="https://wishy.in" target="_blank" class="brand-badge">Wishy.in</a>
+            <div class="create-form-header">
+                <!-- Global Music Player visible instead -->
+                <span class="form-icon">💝</span>
+                <h2>Create Your Valentine's Greeting</h2>
+                <p>Personalize every detail for someone special</p>
+            </div>
+            <form id="greetingForm">
+                <div class="form-fields">
+                    <!-- Basic Info -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="senderName">Your Name *</label>
+                            <input type="text" id="senderName" name="sender" placeholder="e.g., Your Name"
+                                maxlength="100" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="receiverName">Their Name *</label>
+                            <input type="text" id="receiverName" name="receiver" placeholder="e.g., Their Name"
+                                maxlength="100" required>
+                        </div>
+                    </div>
+
+                    <!-- Day Selector -->
+                    <div class="form-group">
+                        <label for="daySelect">Select Day Theme *</label>
+                        <select id="daySelect" name="day_index" required>
+                            <option value="0">🌹 Rose Day - Feb 7</option>
+                            <option value="1">💍 Propose Day - Feb 8</option>
+                            <option value="2">🍫 Chocolate Day - Feb 9</option>
+                            <option value="3">🧸 Teddy Day - Feb 10</option>
+                            <option value="4">🤝 Promise Day - Feb 11</option>
+                            <option value="5">🤗 Hug Day - Feb 12</option>
+                            <option value="6">💋 Kiss Day - Feb 13</option>
+                            <option value="7">💕 Valentine's Day - Feb 14</option>
+                        </select>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="button-row">
+                        <button type="button" id="previewBtn" class="preview-btn">👁️ Preview</button>
+                        <button type="submit" class="create-btn">Create Link 💕</button>
+                    </div>
+                </div>
+            </form>
+            <div id="createResult" style="display: none;"></div>
+            <div class="brand-footer">Made with ❤️ by <a href="https://wishy.in" target="_blank">Wishy.in</a></div>
+        </div>
+    </div>
+
     <script src="config.js"></script>
+    <script src="js/dynamic-loader.js"></script>
     <script src="js/main.js"></script>
 </body>
 

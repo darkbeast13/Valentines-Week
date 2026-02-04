@@ -1,0 +1,23 @@
+{
+  "name": "wishy-in",
+  "version": "1.0.0",
+  "description": "Dynamic Valentine's Week personalized greeting generator",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "demo": "node local-demo-server.js",
+    "build": "echo 'Static site - no build required'",
+    "start": "npx serve ."
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "express": "^5.2.1",
+    "nanoid": "^5.0.4"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

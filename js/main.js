@@ -4,7 +4,7 @@ let isPlaying = false;
 let petals = [];
 let isDateLocked = true; // Set to true for production (date-based), false for testing
 let debugDate = null; // For debugging: set to test specific dates like '2-7'
-let showDebugPanel = true; // Set to true to show the wrench icon, false to hide it
+let showDebugPanel = false; // Set to true to show the wrench icon, false to hide it
 
 // ============ DATE MAPPING ============
 const dateToDay = {
@@ -494,6 +494,7 @@ function populateDayContent(day) {
     setCustomCursorForDay(currentDayIndex);
     stopEffects();
     setMusicPlayerTheme(day);
+    setupMusicForDay(); // Fix: Update music when content changes
     // Update CSS theme
     document.documentElement.style.setProperty('--theme-color', day.themeColor);
     document.body.style.background = `linear-gradient(135deg, ${day.bgStart} 0%, ${day.bgMid} 50%, ${day.bgEnd} 100%)`;
@@ -667,6 +668,8 @@ function playTimeline() {
         addRevealCardAnimation(tl);
     }
 }
+
+
 
 // ============ VALENTINE INTERACTION (Feb 14) ============
 function showValentineStage() {
@@ -1584,10 +1587,25 @@ function createHeartsRain() {
 function openLoveLetter() {
     const modal = document.getElementById('letterModal');
     const letterText = document.getElementById('letterText');
+    const letterSignature = document.getElementById('letterSignature');
     const day = config.days[currentDayIndex];
 
     if (day && day.letter) {
-        letterText.innerHTML = day.letter;
+        // Replace placeholders with actual names
+        let letterContent = day.letter;
+        const receiverName = config.recipientName || 'My Love';
+        const senderName = config.senderName || 'Your Valentine';
+
+        letterContent = letterContent.replace(/\{\{RECEIVER\}\}/g, receiverName);
+        letterContent = letterContent.replace(/\{\{SENDER\}\}/g, senderName);
+
+        letterText.innerHTML = letterContent;
+
+        // Update the signature in the modal
+        if (letterSignature) {
+            letterSignature.innerHTML = `Forever Yours,<br>${senderName}`;
+        }
+
         modal.style.display = 'flex';
         document.body.classList.add('modal-open');
         // Small delay to allow display flex to apply before opacity transition
