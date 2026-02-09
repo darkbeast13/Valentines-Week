@@ -8,7 +8,7 @@ const config = {
     year: 2026,
 
     // Your Name / Recipient Name
-    recipientName: "My Darling Anu🌸",
+    recipientName: "My ADITI 🌸",
 
     // Background Icons (Floating)
     floatingIcons: [
@@ -227,7 +227,7 @@ const config = {
             icon: "❤️",
             icons: ["❤️", "💘", "💖"],
             quote: "You are my first thought at dawn,<br>my last whisper at night,<br>and every beautiful moment in between.",
-            message: "8 days of love led to this moment. Happy Valentine's Day, Anu🌸. You are my forever.",
+            message: "8 days of love led to this moment. Happy Valentine's Day, Aditi. You are my forever.",
             themeColor: "#ff0040",
             bgStart: "#FFF0F5", bgMid: "#FFD0E0", bgEnd: "#FFB0C8",
             petalSymbols: ["❤️", "💘", "💕", "💗", "💖", "🌹", "🎉", "✨", "🎆"],
@@ -246,12 +246,12 @@ const config = {
                 "Will you keep it safe?",
                 "Happy Valentine's Day, my love! ❤️"
             ],
-            letter: `My Dearest Anu,<br><br>
+            letter: `Aditi ,<br><br>
             They say seven days make a week, but these seven days with you have felt like a lifetime of happiness packed into moments. <br><br>
             From the first rose I wished to give you, to the promise I made to stand by you forever—every step has only deepened my certainty: <b>You are the one.</b><br><br>
             You are my laughter in happiness, my comfort in silence, and my strength in chaos. I don't just want you for a Valentine's Day; I want you for every single day that follows.<br><br>
             Thank you for being my peace and my home. I love you more than words can say.<br><br>
-            Forever yours,<br>Chadu`
+            Forever yours,<br>Nikhil`
         }
     ]
 };
